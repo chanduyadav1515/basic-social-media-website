@@ -53,6 +53,9 @@ function NavBar(props) {
                 <li onClick={()=>{
                   navigate("/login")
                 }} > LOG IN </li>
+                <li onClick={()=>{
+                  navigate("/signup")
+                }} > Register </li>
               </ul>
             </div>
           </div>

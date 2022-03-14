@@ -7,7 +7,7 @@ export function bodyForm(params)
         let encodedKey = encodeURIComponent(property);
         let enocdedValue = encodeURIComponent(params[property]);
 
-        encodedForm(encodedKey +"="+ enocdedValue);
+        encodedForm.push(encodedKey +"="+ enocdedValue);
     }
     return encodedForm.join("&")
 }

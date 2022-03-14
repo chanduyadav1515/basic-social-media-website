@@ -3,12 +3,15 @@ import {ApiUrls} from '../helpers/url';
 import {formBody} from '../helpers/utils'
 
 export function login_start(){
-    type: LOGIN_START,
+    return{
+        type: LOGIN_START,
+    }
+    
 }
 
 export function login(email,password)
 {
-    return(dispatch){
+    return(dispatch)=>{
         const url = ApiUrls.login()
 
         fetch(url,{

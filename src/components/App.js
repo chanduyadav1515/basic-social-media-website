@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router , Route , Link, Routes } from 'react-router-dom';
 
-import { PostsList , NavBar} from './';
+import { PostsList , NavBar ,PageNotFound, Home , Login } from './';
 import { fetchPosts } from '../actions/posts';
-
 
 class App extends React.Component {
   componentDidMount() {
@@ -14,10 +14,19 @@ class App extends React.Component {
   render() {
     const { posts } = this.props;
     return (
-      <div>
+      <Router>
         <NavBar/>
-        <PostsList posts={posts} />
-      </div>
+        <Routes>
+            <Route path='/login' element={<Login/>}/>
+            {/* <Route 
+              path='/'  
+              element = {<Home />}
+              render = {(props)=>{
+                return <Home {...props} posts = {posts}/>
+                }} /> */}
+            <Route path="*" element= {<PageNotFound/>}/> 
+        </Routes>
+      </Router>
     );
   }
 }

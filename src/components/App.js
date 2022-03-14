@@ -18,12 +18,9 @@ class App extends React.Component {
         <NavBar/>
         <Routes>
             <Route path='/login' element={<Login/>}/>
-            {/* <Route 
+            <Route 
               path='/'  
-              element = {<Home />}
-              render = {(props)=>{
-                return <Home {...props} posts = {posts}/>
-                }} /> */}
+              element = {<Home posts = {posts}/>} />
             <Route path="*" element= {<PageNotFound/>}/> 
         </Routes>
       </Router>

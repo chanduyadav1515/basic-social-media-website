@@ -1,4 +1,4 @@
-import { LOGIN_FAIL, LOGIN_START, LOGIN_SUCCESS, SIGN_UP_FAIL, SIGN_UP_START, SIGN_UP_SUCCESS } from "../actions/actionTypes"
+import { LOGIN_FAIL, LOGIN_START, LOGIN_SUCCESS, SIGN_UP_FAIL, SIGN_UP_START, SIGN_UP_SUCCESS,AFTER_REFRESH } from "../actions/actionTypes"
 
 const authDetails = {
     user:"",
@@ -33,6 +33,12 @@ export default function auth(state = authDetails ,action)
                     error:null,
                     isProgress:false               
                 }
+            case AFTER_REFRESH:
+                return{
+                    ...state,
+                    user:action.user,
+                    islogging:true
+                }  
             default :
             return state
         }

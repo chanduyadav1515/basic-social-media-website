@@ -1,4 +1,4 @@
-import { LOGIN_FAIL, LOGIN_START, LOGIN_SUCCESS } from "./actionTypes";
+import { LOGIN_FAIL, LOGIN_START, LOGIN_SUCCESS ,AFTER_REFRESH} from "./actionTypes";
 import {ApiUrls} from '../helpers/url';
 import {bodyForm} from '../helpers/utils'
 
@@ -39,6 +39,7 @@ export function login(email,password)
         .then((response) => response.json() )
         .then((data) =>{
             if(data.success){
+                localStorage.setItem('token',data.data.token)
                 dispatch(login_success(data.data.user))
             }
             else
@@ -46,5 +47,13 @@ export function login(email,password)
                 dispatch(login_fail(data.message))
             }
         })
+    }
+}
+
+export function afterRefresh(user){
+
+    return{
+        type:AFTER_REFRESH,
+        user,
     }
 }

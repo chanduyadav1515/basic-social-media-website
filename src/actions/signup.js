@@ -36,6 +36,7 @@ export function signupStart(email,name,password,confirmPassword)
         .then((response)=>response.json())
         .then((data)=>{
             if(data.success){
+                localStorage.setItem('token',data.data.token)
                 dispatch(signup_success((data.data.user)))
             }
             else{

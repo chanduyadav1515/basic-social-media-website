@@ -53,7 +53,7 @@ class signup extends Component {
         return (
             <div>
                 <form className="login-form">
-                    <span className="login-signup-header">Log In</span>
+                    <span className="login-signup-header">Sign Up</span>
                     <div className="field">
                     <input onChange={this.setName} type="text" placeholder="Name" required />
                     </div>
@@ -70,7 +70,7 @@ class signup extends Component {
                     <div className="field">
                     <button onClick={this.buttonHandled} >Sign Up</button>
                     </div>
-            </form>
+                </form>
             </div>
         );
     }

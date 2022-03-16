@@ -10,6 +10,7 @@ export function fetchPosts() {
       })
       .then((data) => {
         console.log(data);
+        
         dispatch(updatePosts(data.data.posts));
       });
   };
@@ -21,4 +22,6 @@ export function updatePosts(posts) {
     posts,
   };
 }
+
+
 

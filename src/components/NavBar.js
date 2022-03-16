@@ -6,7 +6,9 @@ function NavBar(props) {
     return (
         <nav className="nav">
           <div className="left-div">
-            <img
+            
+            <img onClick={()=>{ navigate('/')
+    }}
               src="https://ninjasfiles.s3.amazonaws.com/0000000000003454.png"
               alt="logo"
             />

@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
 import React, { Component } from 'react';
-import {login} from '../actions/auth'
+import {login,clearErrorState} from '../actions/auth'
 
 class Login extends Component {
 
@@ -11,6 +12,9 @@ class Login extends Component {
             email:"",
             password:"",
         }
+    }
+    componentWillUnmount(){
+      this.props.dispatch(clearErrorState())
     }
     emailUpdateInState = ((e)=>{
         this.setState({
@@ -30,8 +34,13 @@ class Login extends Component {
           this.props.dispatch(login(email,password))
     })
   render() {
-    const {error,isProgress} = this.props.auth
-    return (
+    const {error,isProgress,islogging} = this.props.auth
+    if (islogging) {
+      return <Navigate to='/' />;
+    }
+    else
+    {
+    return ( 
       <form className="login-form">
         <span className="login-signup-header">Log In</span>
         {error && <div className="alert error-dailog">{error}</div>}
@@ -52,7 +61,7 @@ class Login extends Component {
             </button>)}
         </div>
       </form>
-    );
+    );}
   }
 }
 

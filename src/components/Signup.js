@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import {signupStart} from '../actions/signup'
 
 class signup extends Component {
@@ -50,10 +51,15 @@ class signup extends Component {
     }
 
     render() {
+        const {error,isProgress,islogging} = this.props.auth
+        if (islogging) {
+          return <Navigate to='/' />;
+        }
         return (
             <div>
                 <form className="login-form">
                     <span className="login-signup-header">Sign Up</span>
+                    {error && <div className="alert error-dailog">{error}</div>}
                     <div className="field">
                     <input onChange={this.setName} type="text" placeholder="Name" required />
                     </div>

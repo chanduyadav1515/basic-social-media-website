@@ -51,12 +51,14 @@ class NavBar extends React.Component {
           </div>
           <div className="right-nav">
             <div className="user">
-              <img
-                src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1647077941~hmac=b2874e79363ad3f7ef50292db67fd578"
-                alt="user-dp"
-                id="user-dp"
-              />
-              <span>John Doe</span>
+              <Link to='/settings'>
+                <img
+                  src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1647077941~hmac=b2874e79363ad3f7ef50292db67fd578"
+                  alt="user-dp"
+                  id="user-dp"
+                />
+                <span>{this.props.auth.user.name}</span>
+              </Link>
             </div>
             <div className="nav-links">
               {!islogging ?

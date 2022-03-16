@@ -1,4 +1,4 @@
-import { LOGIN_FAIL, LOGIN_START, LOGIN_SUCCESS ,AFTER_REFRESH,LOGOUT_USER} from "./actionTypes";
+import { LOGIN_FAIL, LOGIN_START, LOGIN_SUCCESS ,AFTER_REFRESH,LOGOUT_USER,CLEAR_ERROR_STATE} from "./actionTypes";
 import {ApiUrls} from '../helpers/url';
 import {bodyForm} from '../helpers/utils'
 
@@ -62,5 +62,11 @@ export function logoutId(user){
     return{
         type:LOGOUT_USER,
         user,
+    }
+}
+
+export function clearErrorState(){
+    return{
+        type:CLEAR_ERROR_STATE,
     }
 }

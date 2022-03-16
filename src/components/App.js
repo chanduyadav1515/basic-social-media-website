@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import jwtDecode from 'jwt-decode';
 
-import { BrowserRouter as Router , Route , Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router , Route , Link, Routes,Navigate, Outlet } from 'react-router-dom';
 
-import { PostsList , NavBar ,PageNotFound, Home , Login ,Signup} from './';
+import { PostsList , NavBar ,PageNotFound, Home , Login ,Signup,Settings,PrivateComponents} from './';
 import { fetchPosts} from '../actions/posts';
-import {afterRefresh} from '../actions/auth'
+import {afterRefresh} from '../actions/auth';
 
 class App extends React.Component {
   componentDidMount() {
@@ -32,6 +32,10 @@ class App extends React.Component {
             <Route 
               path='/'  
               element = {<Home posts = {posts}/>} />
+            <Route path='/' element={<PrivateComponents/>}>
+              <Route path='/settings' element={<Settings/>} />
+            </Route>
+              
             <Route path="*" element= {<PageNotFound/>}/> 
         </Routes>
       </Router>
@@ -42,6 +46,7 @@ class App extends React.Component {
 function mapStateToProps(state) {
   return {
     posts: state.posts,
+    auth:state.auth,
   };
 }
 

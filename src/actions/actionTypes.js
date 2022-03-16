@@ -18,3 +18,6 @@ export const AFTER_REFRESH = "AFTER_REFRESH";
 
 //logout
 export const LOGOUT_USER = "LOGOUT_USER";
+
+//
+export const CLEAR_ERROR_STATE = "CLEAR_ERROR_STATE";

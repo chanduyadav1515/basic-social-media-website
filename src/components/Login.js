@@ -30,7 +30,7 @@ class Login extends Component {
           this.props.dispatch(login(email,password))
     })
   render() {
-    const {error,isProgress,isLogging} = this.props.auth
+    const {error,isProgress} = this.props.auth
     return (
       <form className="login-form">
         <span className="login-signup-header">Log In</span>

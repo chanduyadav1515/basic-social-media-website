@@ -14,3 +14,7 @@ export const SIGN_UP_START = "SIGN_UP_START";
 
 //for refresh issue
 export const AFTER_REFRESH = "AFTER_REFRESH";
+
+
+//logout
+export const LOGOUT_USER = "LOGOUT_USER";

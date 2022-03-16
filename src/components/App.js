@@ -17,7 +17,7 @@ class App extends React.Component {
     if(token)
     {
         const user = jwtDecode(token);
-        this.props.dispatch(afterRefresh(user))
+        this.props.dispatch(afterRefresh({name:user.name,email:user.email,_id:user._id}))
     }
   }
 

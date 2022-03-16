@@ -1,17 +1,26 @@
 import React from 'react';
-import {useNavigate} from 'react-router-dom'
+import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
-function NavBar(props) {
-  const navigate = useNavigate();
+import {logoutId} from '../actions/auth'
+
+class NavBar extends React.Component {
+ 
+  logOut = ()=>{
+    localStorage.removeItem('token')
+    this.props.dispatch(logoutId({name:'',email:'',_id:''}))
+  }
+  render() { 
+    const {islogging} = this.props.auth
     return (
-        <nav className="nav">
-          <div className="left-div">
-            
-            <img onClick={()=>{ navigate('/')
-    }}
+      <nav className="nav">
+          <div className="left-div">         
+          <Link to="/"  >
+            <img 
               src="https://ninjasfiles.s3.amazonaws.com/0000000000003454.png"
               alt="logo"
             />
+            </Link>
           </div>
           <div className="search-container">
             <img
@@ -50,19 +59,21 @@ function NavBar(props) {
               <span>John Doe</span>
             </div>
             <div className="nav-links">
-              
-              <ul>
-                <li onClick={()=>{
-                  navigate("/login")
-                }} > LOG IN </li>
-                <li onClick={()=>{
-                  navigate("/signup")
-                }} > Register </li>
-              </ul>
+              {!islogging ?
+              (<ul>
+              <Link to="/login"  ><li> LOG IN </li></Link>
+              <Link to="/signup"  ><li> Register </li></Link>
+              </ul>):(<ul><li onClick={this.logOut}> LOG OUT </li></ul>)}
             </div>
           </div>
         </nav>
     );
+  }
 }
 
-export default NavBar;
+function porpsToState(state){
+  return{
+    auth:state.auth,
+  };
+}
+export default connect(porpsToState)(NavBar);

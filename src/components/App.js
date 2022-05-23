@@ -29,11 +29,12 @@ class App extends React.Component {
         <Routes>
             <Route path='/login' element={<Login/>}/>
             <Route path='/signup' element={<Signup/>}/>
-            <Route 
-              path='/'  
-              element = {<Home posts = {posts}/>} />
+            
             <Route path='/' element={<PrivateComponents/>}>
               <Route path='/settings' element={<Settings/>} />
+              <Route 
+              path='/'  
+              element = {<Home posts = {posts}/>} />
             </Route>
               
             <Route path="*" element= {<PageNotFound/>}/> 

@@ -53,7 +53,7 @@ class NavBar extends React.Component {
             <div className="user">
               <Link to='/settings'>
                 <img
-                  src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1647077941~hmac=b2874e79363ad3f7ef50292db67fd578"
+                src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80'
                   alt="user-dp"
                   id="user-dp"
                 />
